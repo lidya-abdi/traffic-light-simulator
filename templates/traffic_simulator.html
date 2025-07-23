@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Light Optimization Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Traffic Light Optimization Simulator</h1>
+    <div class="traffic-light">
+        <div class="light red" id="redLight"></div>
+        <div class="light green" id="greenLight"></div>
+    </div>
+    <div class="slider-container">
+        <label for="duration">Green Light Duration (seconds):</label>
+        <input type="range" id="duration" min="1" max="20" value="6" oninput="updateValue(this.value)">
+        <span id="durationValue">6</span> seconds
+        <br><br>
+        <button onclick="runSimulation()">Run Simulation</button>
+    </div>
+    <div id="result"></div>
+    <div id="chart"></div>
+    <h2>Optimization Curve</h2>
+    <div id="optimizationChart">
+        <img src="/optimization-curve" alt="Optimization Curve">
+    </div>
+    <h2>Random Traffic Density Simulation</h2>
+    <div id="randomSimChart">
+        <img src="/random-simulation" alt="Random Simulation Chart">
+    </div>
+    <h2>Traffic Density via ODE</h2>
+    <h2>Compare Multiple Green Light Durations</h2>
+    <div id="compareDurationsChart">
+        <img src="/compare-durations" alt="Compare Green Durations">
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
